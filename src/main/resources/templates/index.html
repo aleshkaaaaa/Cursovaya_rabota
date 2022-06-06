@@ -1,0 +1,569 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity5">
+<head>
+  <title>Phoenix Ломбард | Главная</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.2/css/bootstrap.min.css" integrity="sha384-Smlep5jCw/wG7hdkwQ/Z5nLIefveQRIY9nfy6xoR1uRYBtpZgI6339F5dgvm/e9B" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+  <link href="https://fonts.googleapis.com/css?family=Poppins:400" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css?family=Poiret+One" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css">
+  <script src="https://unpkg.com/scrollreveal/dist/scrollreveal.min.js"></script>
+  <link rel="shortcut icon" href="favicon32.png">
+</head>
+<body>
+
+  <nav id="navbar" class="navbar navbar-expand-md navbar-light bg-white container">
+    <a class="navbar-brand" href="/index">Phoenix</a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarNav">
+      <ul class="navbar-nav ml-auto">
+        <li class="nav-item">
+          <a class="nav-link" href="#home">Главная</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="#features">Почему мы?</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="#store-finder">Ломбарды</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="#testimonials">Отзывы</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="#contact">Связаться</a>
+        </li>
+        <li sec:authorize="!isAuthenticated()" class="nav-item">
+          <a class="nav-link" href="/login">Войти</a>
+        </li>
+
+        <li class="nav-item submenu dropdown" sec:authorize="isAuthenticated()">
+          <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true"
+             aria-expanded="false" sec:authentication="name"></a>
+          <ul class="dropdown-menu">
+            <li class="nav-item"><a class="nav-link" href="/logout">Выйти</a></li>
+          </ul>
+        </li>
+      </ul>
+    </div>
+  </nav>
+
+  <section id="home" class="hero container">
+    <div class="row align-items-center">
+      <div class="col-lg-6 hero-left">
+        <img src="media/hero@1x.jpg" srcset="media/hero@1x.jpg 1x, media/hero@2x.jpg 2x">
+      </div>
+      <div class="col-lg-6 hero-right">
+        <h1>Получить деньги стало проще</h1>
+        <p>Мы занимаемся ломбардной деятельностью с 2015 года. Нам можно доверять! </p>
+        <button type="button" class="btn btn-outline-dark btn-bottom" onclick='window.open("http://www.consultant.ru/document/cons_doc_LAW_70009/a9533930265965b115ab240ad073cb341fe8f8a8/", "_blank");'>Все по закону</button>
+      </div>
+    </div>
+  </section>
+
+  <section id="features" class="banner-0">
+    <div class="container">
+      <div class="row">
+        <div class="col-md-5 banner-0-left">
+          <h2>Надежный способ получения наличных прямо сейчас</h2>
+          <p>У нас десятки тысяч довольных клиентов. Работаем как и на американском рынке, так и на российском. Находимся в топ-50 по версии Банка РФ и это только начало!</p>
+          <button type="button" class="btn btn-outline-light btn-bottom" onclick='window.open("https://cbr.ru/microfinance/explan/lombard/", "_blank");'>Разъяснения о ломбардах</button>
+        </div>
+        <div class="col-md-7"></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="banner-1">
+    <div class="container">
+      <div class="row align-items-center">
+        <div class="col-md-6">
+          <img src="media/banner-1@1x.png" srcset="media/banner-1@1x.png 1x, media/banner-1@2x.png 2x">
+        </div>
+        <div class="col-md-6 banner-1-right">
+          <h2>Мы покупаем любые драгоценности</h2>
+          <p>Срочно нужны деньги, а любимая бабуля как раз отдала вам золотые часы? Выкупим у вас все драгоценное. Часы, браслеты, цепочки, серьги, очки. Принимаем золото, серебро, платину, а также палладий!</p>
+
+          <table class="table">
+            <thead>
+            <tr>
+              <th scope="col">Металл</th>
+              <th scope="col">Покупка</th>
+              <th scope="col">Продажа</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr>
+              <th scope="row">Золото</th>
+              <td>3623.93</td>
+              <td>3838.25</td>
+            </tr>
+            <tr>
+              <th scope="row">Серебро</th>
+              <td>42.83</td>
+              <td>47.28</td>
+            </tr>
+            <tr>
+              <th scope="row">Платина</th>
+              <td>1864.32</td>
+              <td>1956.24</td>
+            </tr>
+            <tr>
+              <th scope="row">Палладий</th>
+              <td>3899.85</td>
+              <td>4079.23</td>
+            </tr>
+            </tbody>
+          </table>
+
+          <button type="button" class="btn btn-outline-dark btn-bottom" onclick='window.open("https://mfd.ru/centrobank/preciousmetals/", "_blank");'>Курс драгметаллов ЦБ РФ</button>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="banner-2">
+    <div class="container">
+      <div class="row align-items-center">
+        <div class="col-md-6 banner-2-left order-2 order-md-1">
+          <h2>Наличный и безналичный расчет</h2>
+          <p>Хотите наличкой? Хотите на карту? Без проблем. При безналичном расчете деньги поступят в ближайшие минуты на ваш счет. Платим рублями, долларами, евро.</p>
+
+          <table class="table">
+            <thead>
+            <tr>
+              <th scope="col">Валюта</th>
+              <th scope="col">Покупка</th>
+              <th scope="col">Продажа</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr>
+              <th scope="row">Доллар</th>
+              <td>63.34</td>
+              <td>67.26</td>
+            </tr>
+            <tr>
+              <th scope="row">Евро</th>
+              <td>66.32</td>
+              <td>69.16</td>
+            </tr>
+            </tbody>
+          </table>
+
+          <button type="button" class="btn btn-outline-dark btn-bottom" onclick='window.open("https://www.banki.ru/products/currency/cb/", "_blank");'>Курс валют ЦБ РФ</button>
+        </div>
+        <div class="col-md-6 order-1 order-md-2">
+          <img src="media/banner-2@1x.png" srcset="media/banner-2@1x.png 1x, media/banner-2@2x.png 2x">
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- STORE FINDER -->
+  <section id="store-finder" class="store-finder">
+    <div class="container">
+      <h2 class="mb-3">Наши ломбарды</h2>
+      <h4>Запись доступна только <a href="/login">авторизованным</a> пользователям на следующее число</h4>
+      <ul class="nav nav-tabs" id="myTab" role="tablist">
+        <li class="nav-item">
+          <a class="nav-link active" id="new-york-tab" data-toggle="tab" href="#new-york" role="tab" aria-controls="new york" aria-selected="true">Нью-Йорк</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" id="london-tab" data-toggle="tab" href="#london" role="tab" aria-controls="london" aria-selected="false">Москва</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" id="tokyo-tab" data-toggle="tab" href="#tokyo" role="tab" aria-controls="tokyo" aria-selected="false">Санкт-Петербург</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" id="berlin-tab" data-toggle="tab" href="#berlin" role="tab" aria-controls="berlin" aria-selected="false">Казань</a>
+        </li>
+      </ul>
+      <div class="tab-content" id="myTabContent">
+        <div class="tab-pane active show fade mt-3" id="new-york" role="tabpanel" aria-labelledby="new-york-tab">
+          <div class="row">
+            <div class="col-md-2">
+              <div class="nav flex-column nav-pills" id="v-pills-tab-1" role="tablist" aria-orientation="vertical">
+                <a class="nav-link active" id="v-pills-home-tab-1" data-toggle="pill" href="#v-pills-home-1" role="tab" aria-controls="v-pills-home-1" aria-selected="true">Главный офис</a>
+              </div>
+            </div>
+            <div class="col-md-10">
+              <div class="tab-content" id="v-pills-tabContent-1">
+                <div class="tab-pane active show fade" id="v-pills-home-1" role="tabpanel" aria-labelledby="v-pills-home-tab-1">
+                  <div class="card" style="width: 100%;">
+                    <iframe class="card-img-top" src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d12091.1698114956!2d-73.9746451!3d40.7445922!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x89c2591ce0874d11%3A0xc5fae28bdd3df635!2sUnited+Nations+Headquarters!5e0!3m2!1sen!2s!4v1532035315527" width="400" height="300" frameborder="0" style="border:0" allowfullscreen></iframe>
+                    <div class="card-body">
+                      <address>
+                        <strong>Phoenix - Главный офис</strong><br>
+                        405 E 42nd Street<br>
+                        New York, NY 10017<br>
+                        USA<br>
+                        <abbr title="Phone">P:</abbr> (123) 456-7890<br>
+                        <abbr title="Email">E:</abbr> office@phoenix.com
+                      </address>
+                      <a href="https://www.google.ru/maps/place/Штаб-квартира+ООН/@40.7498439,-73.9700728,17z/data=!4m13!1m7!3m6!1s0x89c2591c66831d6f:0x8f938fc471814cd3!2zNDA1IEUgNDJuZCBTdCwgTmV3IFlvcmssIE5ZIDEwMDE3LCDQodCo0JA!3b1!8m2!3d40.7498439!4d-73.9678788!3m4!1s0x89c2591ce0874d11:0xc5fae28bdd3df635!8m2!3d40.7491681!4d-73.9674778" class="btn btn-primary" target="_blank">Посмотреть на Google Maps</a>
+
+                      <div sec:authorize="isAuthenticated()">
+                        <div th:if="${infoSetting1}">
+                          <div class="alert alert-success" th:text="${infoMessage1}">
+                          </div>
+                        </div>
+                        <div th:if="${errorSetting1}">
+                          <div class="alert alert-danger" th:text="${errorMessage1}">
+                          </div>
+                        </div>
+                        <br>
+                        <h3 th:text="${#authentication.getPrincipal().getDate(1)}"></h3>
+                        <div>
+                          <a th:if="${c1}" href="/a_1" class="btn btn-outline-success" role="button">10:00</a>
+                          <a th:if="${c2}" href="/a_2" class="btn btn-outline-success" role="button">10:30</a>
+                          <a th:if="${c3}" href="/a_3" class="btn btn-outline-success" role="button">11:00</a>
+                          <a th:if="${c4}" href="/a_4" class="btn btn-outline-success" role="button">11:30</a>
+                          <a th:if="${c5}" href="/a_5" class="btn btn-outline-success" role="button">12:00</a>
+                          <a th:if="${c6}" href="/a_6" class="btn btn-outline-success" role="button">12:30</a>
+                          <a th:if="${c7}" href="/a_7" class="btn btn-outline-success" role="button">13:00</a>
+                          <a th:if="${c8}" href="/a_8" class="btn btn-outline-success" role="button">13:30</a>
+                          <div th:if="!${c1} and !${c2} and !${c3} and !${c4} and !${c5} and !${c6} and !${c7} and !${c8}" class="alert alert-warning">Все места заняты</div>
+                        </div>
+                        <br>
+                      </div>
+
+
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="tab-pane fade mt-3" id="london" role="tabpanel" aria-labelledby="london-tab">
+          <div class="row">
+            <div class="col-md-2">
+              <div class="nav flex-column nav-pills" id="v-pills-tab-2" role="tablist" aria-orientation="vertical">
+                <a class="nav-link active" id="v-pills-home-tab-2" data-toggle="pill" href="#v-pills-home-2" role="tab" aria-controls="v-pills-home-2" aria-selected="true">На Новинском</a>
+                <a class="nav-link" id="v-pills-profile-tab-2" data-toggle="pill" href="#v-pills-profile-2" role="tab" aria-controls="v-pills-profile-2" aria-selected="false">На Гончарной</a>
+              </div>
+            </div>
+            <div class="col-md-10">
+              <div class="tab-content" id="v-pills-tabContent-2">
+                <div class="tab-pane active show fade" id="v-pills-home-2" role="tabpanel" aria-labelledby="v-pills-home-tab-2">
+                  <div class="card" style="width: 100%;">
+                    <iframe class="card-img-top" src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2245.3033249626124!2d37.583343190860276!3d55.753232850611866!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x46b54bb54a4b03f1%3A0x3a3a5ef056ac7e90!2z0J3QvtCy0LjQvdGB0LrQuNC5INCx0YPQuy4sIDE0LCDQnNC-0YHQutCy0LAsIDEyMTA2OQ!5e0!3m2!1sru!2sru!4v1654163104807!5m2!1sru!2sru" width="400" height="300" frameborder="0" style="border:0" allowfullscreen></iframe>
+                    <div class="card-body">
+                      <address>
+                        <strong>Phoenix - На Новинском</strong><br>
+                        Новинский бульвар, 14<br>
+                        Москва, 121069<br>
+                        Россия<br>
+                        <abbr title="Phone">P:</abbr> (123) 456-7890<br>
+                        <abbr title="Email">E:</abbr> novinskiy@phoenix.com
+                      </address>
+                      <a href="https://www.google.ru/maps/place/Новинский+бул.,+14,+Москва,+121069/@55.7533169,37.5837439,17.75z/data=!4m13!1m7!3m6!1s0x46b54bb34d644c67:0x4666bf5bc9bd0924!2z0YAt0L0g0JDRgNCx0LDRgiwg0JzQvtGB0LrQstCw!3b1!8m2!3d55.7525729!4d37.5832858!3m4!1s0x46b54bb54a4b03f1:0x3a3a5ef056ac7e90!8m2!3d55.7536262!4d37.5844531" target="_blank" class="btn btn-primary">Посмотреть на Google Maps</a>
+
+                      <div sec:authorize="isAuthenticated()">
+                        <div th:if="${infoSetting2}">
+                          <div class="alert alert-success" th:text="${infoMessage2}">
+                          </div>
+                        </div>
+                        <div th:if="${errorSetting2}">
+                          <div class="alert alert-danger" th:text="${errorMessage2}">
+                          </div>
+                        </div>
+                        <br>
+                        <h3 th:text="${#authentication.getPrincipal().getDate(1)}"></h3>
+                        <div>
+                          <a th:if="${c9}" href="/a_9" class="btn btn-outline-success" role="button">10:00</a>
+                          <a th:if="${c10}" href="/a_10" class="btn btn-outline-success" role="button">10:30</a>
+                          <a th:if="${c11}" href="/a_11" class="btn btn-outline-success" role="button">11:00</a>
+                          <a th:if="${c12}" href="/a_12" class="btn btn-outline-success" role="button">11:30</a>
+                          <a th:if="${c13}" href="/a_13" class="btn btn-outline-success" role="button">12:00</a>
+                          <a th:if="${c14}" href="/a_14" class="btn btn-outline-success" role="button">12:30</a>
+                          <a th:if="${c15}" href="/a_15" class="btn btn-outline-success" role="button">13:00</a>
+                          <a th:if="${c16}" href="/a_16" class="btn btn-outline-success" role="button">13:30</a>
+                          <div th:if="!${c9} and !${c10} and !${c11} and !${c12} and !${c13} and !${c14} and !${c15} and !${c16}" class="alert alert-warning">Все места заняты</div>
+                        </div>
+                        <br>
+                      </div>
+
+                    </div>
+                  </div>
+                </div>
+                <div class="tab-pane fade" id="v-pills-profile-2" role="tabpanel" aria-labelledby="v-pills-profile-tab-2">
+                  <div class="card" style="width: 100%;">
+                    <iframe class="card-img-top" src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d1335.4686540969824!2d37.6497681596292!3d55.74144854304174!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x46b54ae5eac321d9%3A0xb3c89aebb37412dd!2z0JPQvtC90YfQsNGA0L3QsNGPINGD0LsuLCAzNCwg0JzQvtGB0LrQstCwLCAxMTUxNzI!5e0!3m2!1sru!2sru!4v1654163388637!5m2!1sru!2sru" width="400" height="300" frameborder="0" style="border:0" allowfullscreen></iframe>
+                    <div class="card-body">
+                      <address>
+                        <strong>Phoenix - На Гончарной</strong><br>
+                        Гончарная улица, 34<br>
+                        Москва, 115172<br>
+                        Россия<br>
+                        <abbr title="Phone">P:</abbr> (123) 456-7890<br>
+                        <abbr title="Email">E:</abbr> goncharnaya@phoenix.com
+                      </address>
+                      <a href="https://www.google.ru/maps/place/Гончарная+ул.,+34,+Москва,+115172/@55.7414485,37.6497682,17.75z/data=!4m13!1m7!3m6!1s0x46b54bb34d644c67:0x4666bf5bc9bd0924!2z0YAt0L0g0JDRgNCx0LDRgiwg0JzQvtGB0LrQstCw!3b1!8m2!3d55.7525729!4d37.5832858!3m4!1s0x46b54ae5eac321d9:0xb3c89aebb37412dd!8m2!3d55.7419901!4d37.6498126" class="btn btn-primary">Посмотреть на Google Maps</a>
+
+                      <div sec:authorize="isAuthenticated()">
+                        <div th:if="${infoSetting3}">
+                          <div class="alert alert-success" th:text="${infoMessage3}">
+                          </div>
+                        </div>
+                        <div th:if="${errorSetting3}">
+                          <div class="alert alert-danger" th:text="${errorMessage3}">
+                          </div>
+                        </div>
+                        <br>
+                        <h3 th:text="${#authentication.getPrincipal().getDate(1)}"></h3>
+                        <div>
+                          <a th:if="${c17}" href="/a_17" class="btn btn-outline-success" role="button">10:00</a>
+                          <a th:if="${c18}" href="/a_18" class="btn btn-outline-success" role="button">10:30</a>
+                          <a th:if="${c19}" href="/a_19" class="btn btn-outline-success" role="button">11:00</a>
+                          <a th:if="${c20}" href="/a_20" class="btn btn-outline-success" role="button">11:30</a>
+                          <a th:if="${c21}" href="/a_21" class="btn btn-outline-success" role="button">12:00</a>
+                          <a th:if="${c22}" href="/a_22" class="btn btn-outline-success" role="button">12:30</a>
+                          <a th:if="${c23}" href="/a_23" class="btn btn-outline-success" role="button">13:00</a>
+                          <a th:if="${c24}" href="/a_24" class="btn btn-outline-success" role="button">13:30</a>
+                          <div th:if="!${c17} and !${c18} and !${c19} and !${c20} and !${c21} and !${c22} and !${c23} and !${c24}" class="alert alert-warning">Все места заняты</div>
+                        </div>
+                        <br>
+                      </div>
+
+                    </div>
+                  </div>
+                </div>
+              </div>  
+            </div>
+          </div>
+        </div>
+        <div class="tab-pane fade mt-3" id="tokyo" role="tabpanel" aria-labelledby="tokyo-tab">
+          <div class="row">
+            <div class="col-md-2">
+              <div class="nav flex-column nav-pills" id="v-pills-tab-3" role="tablist" aria-orientation="vertical">
+                <a class="nav-link active" id="v-pills-home-tab-3" data-toggle="pill" href="#v-pills-home-3" role="tab" aria-controls="v-pills-home-3" aria-selected="true">На Кирочной</a>
+              </div>
+            </div>
+            <div class="col-md-10">
+              <div class="tab-content" id="v-pills-tabContent-3">
+                <div class="tab-pane active show fade" id="v-pills-home-3" role="tabpanel" aria-labelledby="v-pills-home-tab-3">
+                  <div class="card" style="width: 100%;">
+                    <iframe class="card-img-top" src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d1413.0070773451848!2d30.354088494560344!3d59.94386021547793!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x4696319e37ddb4ff%3A0x31a36ad83e926b6c!2z0JrQuNGA0L7Rh9C90LDRjyDRg9C7Liwg0KHQsNC90LrRgi3Qn9C10YLQtdGA0LHRg9GA0LMsIDE5MTAyOA!5e0!3m2!1sru!2sru!4v1654163806948!5m2!1sru!2sru" width="400" height="300" frameborder="0" style="border:0" allowfullscreen></iframe>
+                    <div class="card-body">
+                      <address>
+                        <strong>Phoenix - На Кирочной</strong><br>
+                        Кирочная улица, 13<br>
+                        Санкт-Петербург, 191028<br>
+                        Россия<br>
+                        <abbr title="Phone">P:</abbr> (123) 456-7890<br>
+                        <abbr title="Email">E:</abbr> kirochnaya@phoenix.com
+                      </address>
+                      <a href="https://www.google.ru/maps/place/Кирочная+ул.,+Санкт-Петербург,+191028/@59.9438602,30.3540885,17.5z/data=!4m13!1m7!3m6!1s0x4696378cc74a65ed:0x6dc7673fab848eff!2z0KHQsNC90LrRgi3Qn9C10YLQtdGA0LHRg9GA0LM!3b1!8m2!3d59.9310584!4d30.3609096!3m4!1s0x4696319e37ddb4ff:0x31a36ad83e926b6c!8m2!3d59.9441274!4d30.3560903" target="_blank" class="btn btn-primary">Посмотреть на Google Maps</a>
+
+                      <div sec:authorize="isAuthenticated()">
+                        <div th:if="${infoSetting4}">
+                          <div class="alert alert-success" th:text="${infoMessage4}">
+                          </div>
+                        </div>
+                        <div th:if="${errorSetting4}">
+                          <div class="alert alert-danger" th:text="${errorMessage4}">
+                          </div>
+                        </div>
+                        <br>
+                        <h3 th:text="${#authentication.getPrincipal().getDate(1)}"></h3>
+                        <div>
+                          <a th:if="${c25}" href="/a_25" class="btn btn-outline-success" role="button">10:00</a>
+                          <a th:if="${c26}" href="/a_26" class="btn btn-outline-success" role="button">10:30</a>
+                          <a th:if="${c27}" href="/a_27" class="btn btn-outline-success" role="button">11:00</a>
+                          <a th:if="${c28}" href="/a_28" class="btn btn-outline-success" role="button">11:30</a>
+                          <a th:if="${c29}" href="/a_29" class="btn btn-outline-success" role="button">12:00</a>
+                          <a th:if="${c30}" href="/a_30" class="btn btn-outline-success" role="button">12:30</a>
+                          <a th:if="${c31}" href="/a_31" class="btn btn-outline-success" role="button">13:00</a>
+                          <a th:if="${c32}" href="/a_32" class="btn btn-outline-success" role="button">13:30</a>
+                          <div th:if="!${c25} and !${c26} and !${c27} and !${c28} and !${c29} and !${c30} and !${c31} and !${c32}" class="alert alert-warning">Все места заняты</div>
+                        </div>
+                        <br>
+                      </div>
+
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="tab-pane fade mt-3" id="berlin" role="tabpanel" aria-labelledby="berlin-tab">
+          <div class="row">
+            <div class="col-md-2">
+              <div class="nav flex-column nav-pills" id="v-pills-tab-4" role="tablist" aria-orientation="vertical">
+                <a class="nav-link active" id="v-pills-home-tab-4" data-toggle="pill" href="#v-pills-home-4" role="tab" aria-controls="v-pills-home-4" aria-selected="true">На Карле Марксе</a>
+              </div>
+            </div>
+            <div class="col-md-10">
+              <div class="tab-content" id="v-pills-tabContent-4">
+                <div class="tab-pane active show fade" id="v-pills-home-4" role="tabpanel" aria-labelledby="v-pills-home-tab-4">
+                  <div class="card" style="width: 100%;">
+                    <iframe class="card-img-top" src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d1333.549240199039!2d49.11090889672611!3d55.797517197363184!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x415ead3dce33dc4b%3A0xd2517b746217b289!2z0YPQuy4g0JrQsNGA0LvQsCDQnNCw0YDQutGB0LAsIDUsINCa0LDQt9Cw0L3RjCwg0KDQtdGB0L8uINCi0LDRgtCw0YDRgdGC0LDQvSwgNDIwMTEx!5e0!3m2!1sru!2sru!4v1654163970492!5m2!1sru!2sru" width="400" height="300" frameborder="0" style="border:0" allowfullscreen></iframe>
+                    <div class="card-body">
+                      <address>
+                        <strong>Phoenix - На Карле Марксе</strong><br>
+                        улица Карла Маркса, 5<br>
+                        Казань, 420111<br>
+                        Россия<br>
+                        <abbr title="Phone">P:</abbr> (123) 456-7890<br>
+                        <abbr title="Email">E:</abbr> karl_marks@phoenix.com
+                      </address>
+                      <a href="https://www.google.ru/maps/place/ул.+Карла+Маркса,+5,+Казань,+Респ.+Татарстан,+420111/@55.7975172,49.1109089,17.75z/data=!4m13!1m7!3m6!1s0x415ead2b7caccd99:0x7fcb77b9b5ad8c65!2z0JrQsNC30LDQvdGMLCDQoNC10YHQvy4g0KLQsNGC0LDRgNGB0YLQsNC9!3b1!8m2!3d55.7878944!4d49.1233294!3m4!1s0x415ead3dce33dc4b:0xd2517b746217b289!8m2!3d55.7976621!4d49.1114525" target="_blank" class="btn btn-primary">Посмотреть на Google Maps</a>
+
+                      <div sec:authorize="isAuthenticated()">
+                        <div th:if="${infoSetting5}">
+                          <div class="alert alert-success" th:text="${infoMessage5}">
+                          </div>
+                        </div>
+                        <div th:if="${errorSetting5}">
+                          <div class="alert alert-danger" th:text="${errorMessage5}">
+                          </div>
+                        </div>
+                        <br>
+                        <h3 th:text="${#authentication.getPrincipal().getDate(1)}"></h3>
+                        <div>
+                          <a th:if="${c33}" href="/a_33" class="btn btn-outline-success" role="button">10:00</a>
+                          <a th:if="${c34}" href="/a_34" class="btn btn-outline-success" role="button">10:30</a>
+                          <a th:if="${c35}" href="/a_35" class="btn btn-outline-success" role="button">11:00</a>
+                          <a th:if="${c36}" href="/a_36" class="btn btn-outline-success" role="button">11:30</a>
+                          <a th:if="${c37}" href="/a_37" class="btn btn-outline-success" role="button">12:00</a>
+                          <a th:if="${c38}" href="/a_38" class="btn btn-outline-success" role="button">12:30</a>
+                          <a th:if="${c39}" href="/a_39" class="btn btn-outline-success" role="button">13:00</a>
+                          <a th:if="${c40}" href="/a_40" class="btn btn-outline-success" role="button">13:30</a>
+                          <div th:if="!${c33} and !${c34} and !${c35} and !${c36} and !${c37} and !${c38} and !${c39} and !${c40}" class="alert alert-warning">Все места заняты</div>
+                        </div>
+                        <br>
+                      </div>
+
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="testimonials" class="testimonials">
+    <div class="container">
+      <div id="carouselExampleSlidesOnly" class="carousel slide" data-ride="carousel">
+          <div class="carousel-inner">
+            <div class="carousel-item active">
+              <img alt="First slide" class="d-block mx-auto rounded-circle img-thumbnail" src="media/testimonial-1@1x.jpg" srcset="media/testimonial-1@1x.jpg 1x, media/testimonial-1@2x.jpg 2x">
+              <blockquote class="mt-4 text-center">
+                <p class="mb-0">
+                  I urgently needed money for a ferrari, I had to sell my grandfather's watch, this company paid very generously. On the same day, I bought a new Ferrari in the salon. I am very happy! I recommend Phoenix to everyone.
+                </p>
+                <footer class="blockquote-footer mt-4">Alex Smith, <cite title="Source Title"><a href="#">The New Yorker</a></cite></footer>
+              </blockquote>
+            </div>
+            <div class="carousel-item">
+              <img alt="Second slide" class="d-block mx-auto rounded-circle img-thumbnail" src="media/testimonial-2@1x.jpg" srcset="media/testimonial-2@1x.jpg 1x, media/testimonial-2@2x.jpg 2x">
+              <blockquote class="mt-4 text-center">
+                <p class="mb-0">
+                  Осталось много ненужных серебряных драгоценностей от бабушки мужа, у меня аллергия на серебро, поэтому решила продать. Пыталась продать на Авито, вокруг мошенники. Друзья посоветовали Феникс, заплатили много и все быстро. 5+
+                </p>
+                <footer class="blockquote-footer mt-4">Александра Лапушкина, <cite title="Source Title"><a href="#">Санкт-Петербург</a></cite></footer>
+              </blockquote>
+            </div>
+            <div class="carousel-item">
+              <img alt="Third slide" class="d-block mx-auto rounded-circle img-thumbnail" src="media/testimonial-3@1x.jpg" srcset="media/testimonial-3@1x.jpg 1x, media/testimonial-3@2x.jpg 2x">
+              <blockquote class="mt-4 text-center">
+                <p class="mb-0">
+                  Увяз в кредитах, приставы хотели забрать мамину бижутерию и продать ее на аукционе за копейки. Благо быстро одумался и продал сокровища мамы компании Феникс. Могу с радостью заявить, что я больше не должник!
+                </p>
+                <footer class="blockquote-footer mt-4">Борис Подсельцин, <cite title="Source Title"><a href="#">Москва</a></cite></footer>
+              </blockquote>
+            </div>
+          </div>
+        </div>
+    </div>
+  </section>
+
+  <section id="contact" class="contact">
+    <div class="container">
+      <div class="row">
+        <div class="col-md-6"></div>
+        <div class="col-md-6">
+          <h2>Свяжитесь с нами</h2>
+          <form action="/index" th:object="${call}" th:method="POST">
+            <div class="form-group">
+              <input th:field="*{name}" type="text" class="form-control" id="inputName" placeholder="Ваше имя">
+            </div>
+            <div class="form-group">
+              <input th:field="*{email}" type="email" class="form-control" id="inputEmail" placeholder="Ваш email">
+            </div>
+            <div class="form-group">
+              <textarea th:field="*{message}" class="form-control" id="inputTextarea" placeholder="Сообщение" rows="3"></textarea>
+            </div>
+            <button type="submit" class="btn btn-primary">Отправить</button>
+          </form>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <footer class="footer">
+    <a id="back-to-top" class="back-to-top" href="#navbar">
+      <i class="fa fa-long-arrow-up" aria-hidden="true"></i>
+    </a>
+    <div class="container">
+      <div class="row align-items-center">
+        <div class="col-md-6">
+            <p>
+              <a class="navbar-brand" href="#">Phoenix</a>
+            </p>
+            <p>
+              Лицензия ломбардного брокера # PB.104166.000<br>
+              Член Ассоциации Международных кредитных брокеров Нью-Йорка<br>
+              Член Национальной ассоциации ростовщиков
+            </p>
+        </div>
+        <div class="col-md-6 text-md-right mt-5">
+            <img alt="national pawnbrokers association logo" src="media/npa-logo@1x.jpg" srcset="media/npa-logo@1x.jpg 1x, media/npa-logo@2x.jpg 2x">
+            <img alt="colateral loan brokers association of new york logo" src="media/clany-logo@1x.png" srcset="media/clany-logo@1x.png 1x, media/clany-logo@2x.png 2x">
+            <div class="social mt-5 ml-4 ml-md-0 mr-md-4">
+              <a href="https://www.ixbt.com/news/2022/03/04/facebook-polnostju-zablokirovan-v-rossii.html"><i class="fa-social fa fa-facebook" aria-hidden="true"></i></a>
+              <a href="https://kod.ru/instagram-ban-bez-prichin"><i class="fa-social fa fa-instagram ml-4" aria-hidden="true"></i></a>
+            </div>
+        </div>
+      </div>
+      <p class="mt-5 mb-0 mt-md-0">
+        © 2015 Phoenix Inc. All Rights Reserved.<br>
+      </p>
+    </div>
+  </footer>
+
+  <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.2/js/bootstrap.min.js" integrity="sha384-o+RDsa0aLu++PJvFqy8fFScvbHFLtbvScb8AjopnFD+iEQ7wo/CG0xlczd+2O/em" crossorigin="anonymous"></script>
+  <script>
+    window.sr = ScrollReveal();
+    sr.reveal('.hero-left', { duration: 1000, origin: 'bottom', distance: '100px', viewFactor: 0.1 });
+    sr.reveal('.hero-right', { duration: 1000, origin: 'bottom', distance: '100px', viewFactor: 0.1 });
+    sr.reveal('.banner-0-left', { duration: 1000, origin: 'bottom', distance: '100px', viewFactor: 0.1 });
+    sr.reveal('.banner-1-right', { duration: 1000, origin: 'bottom', distance: '100px', viewFactor: 0.1 });
+    sr.reveal('.banner-2-left', { duration: 1000, origin: 'bottom', distance: '100px', viewFactor: 0.1 });
+  </script>
+  <script>
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+      anchor.addEventListener('click', function (e) {
+        e.preventDefault();
+        document.querySelector(this.getAttribute('href')).scrollIntoView({
+          behavior: 'smooth',
+          block: 'start',
+          inline: 'start'
+        });
+      });
+    });
+  </script>
+</body>
+</html>

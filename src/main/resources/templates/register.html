@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity5">
+<head>
+    <title>Phoenix Ломбард | Регистрация</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.2/css/bootstrap.min.css" integrity="sha384-Smlep5jCw/wG7hdkwQ/Z5nLIefveQRIY9nfy6xoR1uRYBtpZgI6339F5dgvm/e9B" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link href="https://fonts.googleapis.com/css?family=Poppins:400" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Poiret+One" rel="stylesheet">
+    <link rel="stylesheet" href="css/style.css">
+    <script src="https://unpkg.com/scrollreveal/dist/scrollreveal.min.js"></script>
+    <link rel="shortcut icon" href="favicon32.png">
+</head>
+<body>
+
+<nav id="navbar" class="navbar navbar-expand-md navbar-light bg-white container">
+    <a class="navbar-brand" href="/index">Phoenix</a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav ml-auto">
+            <li class="nav-item">
+                <a class="nav-link" href="#home">Главная</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="#features">Почему мы?</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="#store-finder">Ломбарды</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="#testimonials">Отзывы</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="#contact">Связаться</a>
+            </li>
+            <li sec:authorize="!isAuthenticated()" class="nav-item">
+                <a class="nav-link" href="/login">Войти</a>
+            </li>
+
+            <li class="nav-item submenu dropdown" sec:authorize="isAuthenticated()">
+                <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true"
+                   aria-expanded="false" sec:authentication="name"></a>
+                <ul class="dropdown-menu">
+                    <li class="nav-item"><a class="nav-link" href="/logout">Выйти</a></li>
+                </ul>
+            </li>
+        </ul>
+    </div>
+</nav>
+
+<br><br><br>
+<section class="section-margin--large">
+    <div class="container">
+
+        <form action="/register" th:object="${user}" th:method="POST">
+            <fieldset>
+                <h1>Регистрация</h1>
+                <figure>
+                    <figcaption class="blackquote-footer">
+                        Введите свои данные
+                    </figcaption>
+                </figure>
+
+                <div th:if="${errorLenUsername}">
+                    <div class="alert alert-danger">
+                        Имя пользователя должно быть не менее 5 символов
+                    </div>
+                </div>
+                <div th:if="${errorLenPassword}">
+                    <div class="alert alert-danger">
+                        Пароль должен быть не менее 5 символов
+                    </div>
+                </div>
+                <div th:if="${errorConfPassword}">
+                    <div class="alert alert-danger">
+                        Пароли не совпадают
+                    </div>
+                </div>
+                <div th:if="${errorAlreadyExistsUsername}">
+                    <div class="alert alert-danger">
+                        Пользователь с таким ником уже существует
+                    </div>
+                </div>
+                <div th:if="${errorAnomaly}">
+                    <div class="alert alert-danger">
+                        Аномальная ошибка
+                    </div>
+                </div>
+                <div class="form-group">
+                    <input type="text" name="username" th:field="*{username}" id="username" class="form-control input-lg"
+                           placeholder="Никнейм" required="true" autofocus="true"/>
+                </div>
+                <br>
+                <div class="form-group">
+                    <input type="password" name="password" th:field="*{password}" id="password" class="form-control input-lg"
+                           placeholder="Пароль" required="true"/>
+                </div>
+                <br>
+                <div class="form-group">
+                    <input type="password" name="passwordConfirm" th:field="*{passwordConfirm}" id="passwordConfirm" class="form-control input-lg"
+                           placeholder="Повторите пароль" required="true"/>
+                </div>
+                <br>
+                <div class="form-group">
+                    <input type="email" name="email" id="email" th:field="*{email}" class="form-control input-lg"
+                           placeholder="Email" required="true"/>
+                </div>
+
+                <br>
+                <div class="row">
+                    <div class="col-xs-6 col-sm-6 col-md-6">
+                        <input type="submit" class="btn btn-lg btn-primary btn-block" value="Зарегистрироваться"/>
+                    </div>
+                    <div class="col-xs-6 col-sm-6 col-md-6">
+                    </div>
+                </div>
+            </fieldset>
+        </form>
+
+        <div>
+            <br><br>
+            <a href="/login" class="btn btn-outline-success" role="button">Авторизоваться</a>
+            <a href="/" class="btn btn-outline-success" role="button">Вернуться на главную</a>
+        </div>
+
+    </div>
+    </div>
+</section>
+
+<footer class="footer">
+    <a id="back-to-top" class="back-to-top" href="#navbar">
+        <i class="fa fa-long-arrow-up" aria-hidden="true"></i>
+    </a>
+    <div class="container">
+        <div class="row align-items-center">
+            <div class="col-md-6">
+                <p>
+                    <a class="navbar-brand" href="#">Phoenix</a>
+                </p>
+                <p>
+                    Лицензия ломбардного брокера # PB.104166.000<br>
+                    Член Ассоциации Международных кредитных брокеров Нью-Йорка<br>
+                    Член Национальной ассоциации ростовщиков
+                </p>
+            </div>
+            <div class="col-md-6 text-md-right mt-5">
+                <img alt="national pawnbrokers association logo" src="media/npa-logo@1x.jpg" srcset="media/npa-logo@1x.jpg 1x, media/npa-logo@2x.jpg 2x">
+                <img alt="colateral loan brokers association of new york logo" src="media/clany-logo@1x.png" srcset="media/clany-logo@1x.png 1x, media/clany-logo@2x.png 2x">
+                <div class="social mt-5 ml-4 ml-md-0 mr-md-4">
+                    <a href="https://www.ixbt.com/news/2022/03/04/facebook-polnostju-zablokirovan-v-rossii.html"><i class="fa-social fa fa-facebook" aria-hidden="true"></i></a>
+                    <a href="https://kod.ru/instagram-ban-bez-prichin"><i class="fa-social fa fa-instagram ml-4" aria-hidden="true"></i></a>
+                </div>
+            </div>
+        </div>
+        <p class="mt-5 mb-0 mt-md-0">
+            © 2015 Phoenix Inc. All Rights Reserved.<br>
+        </p>
+    </div>
+</footer>
+
+<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.2/js/bootstrap.min.js" integrity="sha384-o+RDsa0aLu++PJvFqy8fFScvbHFLtbvScb8AjopnFD+iEQ7wo/CG0xlczd+2O/em" crossorigin="anonymous"></script>
+<script>
+    window.sr = ScrollReveal();
+    sr.reveal('.hero-left', { duration: 1000, origin: 'bottom', distance: '100px', viewFactor: 0.1 });
+    sr.reveal('.hero-right', { duration: 1000, origin: 'bottom', distance: '100px', viewFactor: 0.1 });
+    sr.reveal('.banner-0-left', { duration: 1000, origin: 'bottom', distance: '100px', viewFactor: 0.1 });
+    sr.reveal('.banner-1-right', { duration: 1000, origin: 'bottom', distance: '100px', viewFactor: 0.1 });
+    sr.reveal('.banner-2-left', { duration: 1000, origin: 'bottom', distance: '100px', viewFactor: 0.1 });
+</script>
+<script>
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        anchor.addEventListener('click', function (e) {
+            e.preventDefault();
+            document.querySelector(this.getAttribute('href')).scrollIntoView({
+                behavior: 'smooth',
+                block: 'start',
+                inline: 'start'
+            });
+        });
+    });
+</script>
+</body>
+</html>
